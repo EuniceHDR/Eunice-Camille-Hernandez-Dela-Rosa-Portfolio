@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunice Camille — Senior Creative Designer</title>
+    <meta name="description" content="Senior Creative Designer specializing in packaging, brand design, ad creatives, email marketing, and web & UX/UI. Agency quality, without agency overhead.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF9500;
+            --orange-dim: rgba(255,149,0,0.12);
+            --bg: #080808;
+            --bg-card: #111111;
+            --bg-card-hover: #181818;
+            --text: #FFFFFF;
+            --text-muted: #999999;
+            --text-dim: #555555;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,149,0,0.4);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1;
+        }
+
+        /* Global glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -300px; right: -300px;
+            width: 900px; height: 900px;
+            background: radial-gradient(circle, rgba(255,149,0,0.10) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── NAVIGATION ─── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 28px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(8,8,8,0.96);
+            backdrop-filter: blur(24px);
+            padding: 18px 64px;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            font-family: 'Koulen', sans-serif;
+            font-size: 22px; letter-spacing: 0.06em;
+            color: var(--orange); text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 44px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 13px; font-weight: 500;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+        .nav-cta {
+            background: var(--orange); color: #000;
+            padding: 11px 26px; border-radius: 2px;
+            font-weight: 700; font-size: 12px;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .nav-cta:hover { background: #fff; }
+        .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .nav-burger span { width: 22px; height: 2px; background: var(--text); transition: all 0.3s; border-radius: 2px; }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 160px 64px 100px;
+            position: relative;
+        }
+        .hero-eyebrow {
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--orange); margin-bottom: 28px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .hero-eyebrow::before {
+            content: ''; display: inline-block;
+            width: 40px; height: 2px; background: var(--orange);
+        }
+        .hero-name {
+            font-family: 'Koulen', sans-serif;
+            font-size: clamp(80px, 11vw, 152px);
+            line-height: 0.93; color: var(--text);
+            margin-bottom: 36px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards;
+        }
+        .hero-name .accent { color: var(--orange); }
+        .hero-tagline {
+            font-size: clamp(16px, 1.8vw, 21px);
+            font-weight: 300; color: var(--text-muted);
+            max-width: 580px; line-height: 1.7; margin-bottom: 20px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+        .hero-tags {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 52px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+        .hero-tag {
+            font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--text-dim);
+            padding: 7px 14px; border: 1px solid var(--border); border-radius: 2px;
+        }
+        .hero-actions {
+            display: flex; gap: 14px; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+        .btn-primary {
+            background: var(--orange); color: #000;
+            padding: 16px 38px; font-weight: 700;
+            font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 2px;
+            transition: all 0.25s; display: inline-block; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+        .btn-outline {
+            border: 1px solid var(--border); color: var(--text-muted);
+            padding: 16px 38px; font-weight: 600;
+            font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 2px; transition: all 0.25s; display: inline-block;
+        }
+        .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+        /* Stats */
+        .hero-stats {
+            margin-top: 88px; padding-top: 44px;
+            border-top: 1px solid var(--border);
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+            opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+        }
+        .stat-num {
+            font-family: 'Koulen', sans-serif;
+            font-size: 56px; color: var(--orange);
+            line-height: 1; margin-bottom: 10px;
+        }
+        .stat-label { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+
+        /* ─── TICKER ─── */
+        .ticker {
+            padding: 28px 0; overflow: hidden;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .ticker-track {
+            display: flex; gap: 0;
+            animation: ticker 24s linear infinite;
+            white-space: nowrap; width: max-content;
+        }
+        .ticker-item {
+            font-family: 'Koulen', sans-serif;
+            font-size: 18px; color: var(--text-dim);
+            padding: 0 30px; flex-shrink: 0;
+            letter-spacing: 0.05em; transition: color 0.2s;
+        }
+        .ticker-item:hover { color: var(--orange); }
+        .ticker-sep { color: var(--orange); font-family: 'Koulen', sans-serif; font-size: 18px; flex-shrink: 0; }
+        @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ─── SECTIONS ─── */
+        section { padding: 128px 64px; position: relative; }
+        .s-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .s-label::before { content: ''; width: 32px; height: 2px; background: var(--orange); }
+        .s-title {
+            font-family: 'Koulen', sans-serif;
+            font-size: clamp(40px, 5.5vw, 76px);
+            line-height: 1.02; margin-bottom: 20px;
+        }
+        .s-sub {
+            font-size: 17px; color: var(--text-muted);
+            max-width: 540px; line-height: 1.75; margin-bottom: 64px;
+        }
+
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.75s ease, transform 0.75s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ─── ABOUT ─── */
+        .about-grid {
+            display: grid; grid-template-columns: 380px 1fr; gap: 88px; align-items: center;
+        }
+        .about-photo {
+            aspect-ratio: 3/4; background: var(--bg-card);
+            border: 1px solid var(--border); position: relative; overflow: hidden;
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .about-photo-ph {
+            width: 100%; height: 100%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 8px;
+        }
+        .about-photo::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 4px; background: var(--orange);
+        }
+        .about-bio { font-size: 17px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .about-bio strong { color: var(--text); font-weight: 600; }
+        .about-pull {
+            border-left: 3px solid var(--orange);
+            padding: 18px 24px; margin: 32px 0;
+            background: var(--orange-dim);
+        }
+        .about-pull p { font-size: 16px; color: var(--text); font-style: italic; line-height: 1.65; }
+
+        /* ─── SERVICES ─── */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+        }
+        .service-card {
+            background: var(--bg-card); padding: 48px 40px;
+            border: 1px solid transparent; position: relative; overflow: hidden;
+            transition: all 0.3s;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: var(--orange); transform: scaleX(0); transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+        .service-card:hover { background: var(--bg-card-hover); border-color: var(--border); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon { font-size: 32px; margin-bottom: 22px; }
+        .service-name { font-family: 'Koulen', sans-serif; font-size: 26px; margin-bottom: 12px; }
+        .service-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+        .service-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .chip {
+            font-size: 10px; color: var(--text-dim); border: 1px solid var(--border);
+            padding: 4px 10px; border-radius: 2px; letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        /* ─── PORTFOLIO ─── */
+        .portfolio-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px; }
+        .f-btn {
+            padding: 9px 20px; border: 1px solid var(--border);
+            background: transparent; color: var(--text-muted);
+            font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; cursor: pointer; border-radius: 2px;
+            transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .f-btn:hover { border-color: var(--orange); color: var(--orange); }
+        .f-btn.active { background: var(--orange); border-color: var(--orange); color: #000; }
+
+        .portfolio-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 3px;
+        }
+        .p-card {
+            position: relative; overflow: hidden;
+            background: var(--bg-card); cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+        .p-card.wide { grid-column: span 2; }
+        .p-card.tall { grid-row: span 2; aspect-ratio: auto; }
+
+        .p-img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.55s ease;
+        }
+        .p-card:hover .p-img { transform: scale(1.06); }
+
+        /* Category bg colors */
+        .bg-packaging { background: linear-gradient(145deg,#14100a,#221a0a); }
+        .bg-ads       { background: linear-gradient(145deg,#0c0f1a,#141828); }
+        .bg-social    { background: linear-gradient(145deg,#140a18,#200f28); }
+        .bg-web       { background: linear-gradient(145deg,#091614,#0f2220); }
+        .bg-print     { background: linear-gradient(145deg,#160c0c,#221212); }
+        .bg-digital   { background: linear-gradient(145deg,#091409,#0f2010); }
+        .bg-ai        { background: linear-gradient(145deg,#0e0918,#180e28); }
+        .bg-gifs      { background: linear-gradient(145deg,#141400,#201e00); }
+
+        .p-ph-text {
+            font-family: 'Koulen', sans-serif; font-size: 15px;
+            color: rgba(255,255,255,0.12); text-align: center; padding: 20px; line-height: 1.4;
+        }
+        .p-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 18px 22px;
+            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%);
+        }
+        .p-cat {
+            font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--orange); margin-bottom: 4px;
+        }
+        .p-name { font-family: 'Koulen', sans-serif; font-size: 18px; line-height: 1.2; }
+        .p-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0.1) 100%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 28px; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .p-card:hover .p-overlay { opacity: 1; }
+        .p-overlay .p-cat { margin-bottom: 6px; }
+        .p-overlay .p-name { font-size: 22px; margin-bottom: 4px; }
+        .p-client { font-size: 13px; color: #777; margin-bottom: 8px; }
+        .p-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+        .p-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+        .p-tool { font-size: 10px; color: var(--orange); border: 1px solid rgba(255,149,0,0.4); padding: 3px 8px; border-radius: 2px; }
+
+        /* Card hidden by filter */
+        .p-card.filtered { opacity: 0.15; pointer-events: none; transform: scale(0.98); transition: all 0.3s ease; }
+
+        /* ─── TOOLS ─── */
+        .tools-wrap { background: var(--bg-card); }
+        .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+        .tool-cat { background: var(--bg-card); padding: 44px 40px; }
+        .tool-cat-name { font-family: 'Koulen', sans-serif; font-size: 20px; color: var(--orange); margin-bottom: 22px; }
+        .tool-list { list-style: none; }
+        .tool-list li {
+            font-size: 14px; color: var(--text-muted);
+            padding: 9px 0; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 10px; line-height: 1;
+        }
+        .tool-list li:last-child { border-bottom: none; }
+        .tool-list li::before { content: ''; width: 4px; height: 4px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+        /* ─── TESTIMONIAL ─── */
+        .testi-wrap {
+            background: var(--bg-card); position: relative; overflow: hidden;
+        }
+        .testi-glow {
+            position: absolute; bottom: -300px; left: -200px;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(255,149,0,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .testi-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+        .testi-qmark {
+            font-family: 'Koulen', sans-serif; font-size: 140px;
+            color: var(--orange); line-height: 0.6; margin-bottom: 36px; display: block;
+        }
+        .testi-quote {
+            font-size: clamp(22px, 3vw, 36px); font-weight: 300;
+            line-height: 1.55; color: var(--text); margin-bottom: 52px;
+        }
+        .testi-line { width: 56px; height: 3px; background: var(--orange); margin: 0 auto 28px; }
+        .testi-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+        .testi-role { font-size: 14px; color: var(--text-muted); }
+
+        /* ─── CLIENTS ─── */
+        .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+        .client-card {
+            background: var(--bg-card); padding: 40px 36px; text-align: center;
+            border: 1px solid transparent; transition: all 0.3s;
+        }
+        .client-card:hover { border-color: var(--orange); background: var(--bg-card-hover); }
+        .client-name { font-family: 'Koulen', sans-serif; font-size: 22px; margin-bottom: 8px; }
+        .client-type { font-size: 12px; color: var(--text-dim); letter-spacing: 0.04em; line-height: 1.5; }
+
+        /* ─── CTA BLOCK ─── */
+        .cta-block { background: var(--orange); padding: 88px 64px; text-align: center; }
+        .cta-block h2 { font-family: 'Koulen', sans-serif; font-size: clamp(40px, 6vw, 72px); color: #000; margin-bottom: 16px; }
+        .cta-block p { font-size: 18px; color: rgba(0,0,0,0.65); margin-bottom: 40px; }
+        .btn-dark {
+            background: #000; color: var(--orange);
+            padding: 18px 44px; font-weight: 700; font-size: 13px;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 2px; display: inline-block; transition: all 0.2s;
+        }
+        .btn-dark:hover { background: #1a1a1a; transform: translateY(-2px); }
+
+        /* ─── CONTACT ─── */
+        .contact-wrap { background: var(--bg-card); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
+        .c-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+        .c-icon {
+            width: 48px; height: 48px; flex-shrink: 0;
+            background: var(--orange-dim); border: 1px solid rgba(255,149,0,0.25);
+            border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 18px;
+        }
+        .c-label { font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
+        .c-value { font-size: 16px; color: var(--text); font-weight: 500; }
+        .c-value a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+        .c-value a:hover { color: var(--orange); }
+
+        .contact-form { background: var(--bg); padding: 52px; border: 1px solid var(--border); }
+        .form-group { margin-bottom: 22px; }
+        .form-label {
+            display: block; font-size: 11px; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 9px;
+        }
+        .form-input {
+            width: 100%; padding: 14px 16px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px;
+            border-radius: 2px; outline: none; transition: border-color 0.2s;
+            -webkit-appearance: none;
+        }
+        .form-input:focus { border-color: var(--orange); }
+        .form-input::placeholder { color: var(--text-dim); }
+        textarea.form-input { resize: vertical; min-height: 120px; }
+        select.form-input { cursor: pointer; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 40px 64px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-logo { font-family: 'Koulen', sans-serif; font-size: 20px; color: var(--orange); }
+        .footer-copy { font-size: 13px; color: var(--text-dim); }
+        .footer-links { display: flex; gap: 28px; }
+        .footer-links a { font-size: 13px; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--orange); }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(26px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 20px 24px; }
+            nav.scrolled { padding: 14px 24px; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-burger { display: flex; }
+            section { padding: 80px 24px; }
+            .hero { padding: 120px 24px 80px; }
+            .hero-stats { grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 56px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-photo { max-width: 320px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .p-card.wide { grid-column: span 1; }
+            .p-overlay { opacity: 1; }
+            .tools-grid { grid-template-columns: repeat(2,1fr); }
+            .clients-grid { grid-template-columns: repeat(2,1fr); }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-form { padding: 32px 24px; }
+            .cta-block { padding: 64px 24px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none; position: fixed; inset: 0; background: rgba(8,8,8,0.98);
+            z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a { font-family: 'Koulen', sans-serif; font-size: 48px; color: var(--text); text-decoration: none; }
+        .mobile-nav a:hover { color: var(--orange); }
+        .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 32px; cursor: pointer; color: var(--text-muted); background: none; border: none; font-family: inherit; }
+    </style>
+</head>
+<body>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
+    <a href="#clients" onclick="closeMobile()">Clients</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <a href="#" class="nav-logo">EUNICE CAMILLE</a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:yunisa.hernandez@gmail.com" class="nav-cta">Hire Me</a>
+    <div class="nav-burger" id="navBurger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-eyebrow">Senior Creative Designer · Available for B2B Projects</div>
+    <h1 class="hero-name">Eunice<br><span class="accent">Camille.</span></h1>
+    <p class="hero-tagline">I design for outcomes — brand-consistent, conversion-focused output for B2B brands. Agency quality, without agency overhead.</p>
+    <div class="hero-tags">
+        <span class="hero-tag">Packaging Design</span>
+        <span class="hero-tag">Brand & Ad Creatives</span>
+        <span class="hero-tag">Email Marketing</span>
+        <span class="hero-tag">Web & UX/UI</span>
+        <span class="hero-tag">Social Media Graphics</span>
+        <span class="hero-tag">AI-Assisted Creative</span>
+    </div>
+    <div class="hero-actions">
+        <a href="#portfolio" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Let's Talk</a>
+    </div>
+    <div class="hero-stats">
+        <div><div class="stat-num" data-count="10">0</div><div class="stat-label">Years Design Experience</div></div>
+        <div><div class="stat-num" data-count="8">0</div><div class="stat-label">Brands Served</div></div>
+        <div><div class="stat-num" data-count="5">0</div><div class="stat-label">Team Members</div></div>
+        <div><div class="stat-num" data-count="100">0</div><div class="stat-label">% Client-Facing Lead</div></div>
+    </div>
+</section>
+
+<!-- Client Ticker -->
+<div class="ticker">
+    <div class="ticker-track" id="tickerTrack">
+        <span class="ticker-item">GoBrand</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Zois Perfume</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Carmelo Paris</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Admiral Media</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">WDB Marketing</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Joi Schweitzer</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Blunt Cases</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Moreh Printing</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">RyanAir</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Stanley</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Gymshark</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Liquid Death</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Crocs</span><span class="ticker-sep">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">GoBrand</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Zois Perfume</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Carmelo Paris</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Admiral Media</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">WDB Marketing</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Joi Schweitzer</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Blunt Cases</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Moreh Printing</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">RyanAir</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Stanley</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Gymshark</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Liquid Death</span><span class="ticker-sep">·</span>
+        <span class="ticker-item">Crocs</span><span class="ticker-sep">·</span>
+    </div>
+</div>
+
+<!-- About -->
+<section id="about">
+    <div class="about-grid reveal">
+        <div class="about-photo">
+            <!-- REPLACE WITH YOUR PHOTO:
+                 <img src="images/eunice.jpg" alt="Eunice Camille"> -->
+            <div class="about-photo-ph">
+                <span style="font-family:'Koulen',sans-serif;font-size:16px;color:rgba(255,149,0,0.35);">YOUR PHOTO HERE</span>
+                <span style="font-size:11px;color:#333;margin-top:4px;">Replace with &lt;img&gt; tag</span>
+            </div>
+        </div>
+        <div>
+            <div class="s-label">About Me</div>
+            <h2 class="s-title">Senior Creative.<br>Strategic Thinker.</h2>
+            <div class="about-pull">
+                <p>"I design for outcomes — brand-consistent, conversion-focused output for B2B brands. Agency quality, without agency overhead."</p>
+            </div>
+            <p class="about-bio">With over <strong>10 years of experience</strong> spanning Human Resources and creative design, I bring a rare combination of strategic thinking and design execution. As a creative VA since 2025, I shifted focus to <strong>graphics, packaging, web design, and AI-assisted creative workflows</strong> — serving B2B brands who need reliable, high-quality output without the agency price tag.</p>
+            <p class="about-bio" style="margin-top:18px;">I lead a shadow team of <strong>4–5 creatives</strong> and am always the client-facing lead — meaning you get senior-level thinking and communication on every project, every time.</p>
+            <div style="margin-top:36px;">
+                <a href="#contact" class="btn-primary">Start a Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" style="padding-top:0">
+    <div class="reveal">
+        <div class="s-label">What I Do</div>
+        <h2 class="s-title">Services</h2>
+        <p class="s-sub">End-to-end creative execution built for B2B brands that move fast and need results.</p>
+    </div>
+    <div class="services-grid reveal reveal-delay-1">
+        <div class="service-card">
+            <div class="service-icon">📦</div>
+            <div class="service-name">Packaging & Product Design</div>
+            <p class="service-desc">Brand-compliant packaging systems from concept to print-ready files. Bottles, boxes, pouches, labels — every format.</p>
+            <div class="service-chips">
+                <span class="chip">Product Packaging</span>
+                <span class="chip">Catalog Design</span>
+                <span class="chip">Instruction Manuals</span>
+                <span class="chip">Brand Collaterals</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📣</div>
+            <div class="service-name">Ad Creatives & Social Media</div>
+            <p class="service-desc">High-impact performance ads and carousel content — bold typography, conversion-focused layout. Major global brands served via GoBrand.</p>
+            <div class="service-chips">
+                <span class="chip">Paid Social Ads</span>
+                <span class="chip">Carousel Design</span>
+                <span class="chip">Ecomm Graphics</span>
+                <span class="chip">Product Listings</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <div class="service-name">Web & UX/UI Design</div>
+            <p class="service-desc">User interface and web layout design crafted in Figma — structured for usability, optimized for conversion.</p>
+            <div class="service-chips">
+                <span class="chip">Web Design</span>
+                <span class="chip">UX/UI Figma</span>
+                <span class="chip">Landing Pages</span>
+                <span class="chip">Website Banners</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✉️</div>
+            <div class="service-name">Email Marketing Design</div>
+            <p class="service-desc">Email campaign layouts designed for engagement, readability, and conversion — across retail, health, and B2B industries.</p>
+            <div class="service-chips">
+                <span class="chip">Email Templates</span>
+                <span class="chip">Newsletter Design</span>
+                <span class="chip">Campaign Layouts</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🖨️</div>
+            <div class="service-name">Print & Collaterals</div>
+            <p class="service-desc">Print-ready marketing materials — brochures, posters, catalogs, booklets, and brand collaterals ready for production.</p>
+            <div class="service-chips">
+                <span class="chip">Brochures</span>
+                <span class="chip">Posters</span>
+                <span class="chip">Catalog Design</span>
+                <span class="chip">Event Collaterals</span>
+            </div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✨</div>
+            <div class="service-name">AI-Assisted Creative</div>
+            <p class="service-desc">AI-generated lifestyle photography, GIFs, sticker art, illustrations, and digital products using cutting-edge tools.</p>
+            <div class="service-chips">
+                <span class="chip">AI Photography</span>
+                <span class="chip">GIFs & Animation</span>
+                <span class="chip">Illustrations</span>
+                <span class="chip">Digital Products</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio">
+    <div class="reveal">
+        <div class="s-label">My Work</div>
+        <h2 class="s-title">Portfolio</h2>
+        <p class="s-sub">Real work for real clients — across packaging, social, digital, and brand creative.</p>
+    </div>
+    <div class="portfolio-filters reveal reveal-delay-1">
+        <button class="f-btn active" data-filter="all">All Work</button>
+        <button class="f-btn" data-filter="packaging">Packaging</button>
+        <button class="f-btn" data-filter="ads">Ad Creatives</button>
+        <button class="f-btn" data-filter="social">Social Media</button>
+        <button class="f-btn" data-filter="print">Print</button>
+        <button class="f-btn" data-filter="web">Web & UX/UI</button>
+        <button class="f-btn" data-filter="digital">Digital Products</button>
+        <button class="f-btn" data-filter="ai">AI Creative</button>
+    </div>
+    <div class="portfolio-grid reveal reveal-delay-2" id="portfolioGrid">
+
+        <div class="p-card wide" data-cat="packaging">
+            <div class="p-img bg-packaging">
+                <!-- REPLACE: <img src="images/zois-packaging.jpg" alt="Zois Packaging"> -->
+                <div class="p-ph-text">ZOIS PERFUME<br>FULL PACKAGING SYSTEM<br><br>📸 Add your image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Packaging Design</div><div class="p-name">Zois Perfume — Full Packaging System</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Packaging Design</div>
+                <div class="p-name">Zois Perfume — Full Packaging System</div>
+                <div class="p-client">Zois Perfume · Luxury Fragrance Brand</div>
+                <div class="p-desc">Bottle labels, luxury rigid box, two product variants. Brand-compliant end-to-end.</div>
+                <div class="p-tools"><span class="p-tool">Figma</span><span class="p-tool">Freepik AI</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="ads">
+            <div class="p-img bg-ads">
+                <!-- REPLACE: <img src="images/gobrand-ads.jpg" alt="GoBrand Ads"> -->
+                <div class="p-ph-text">GOBRAND<br>MAJOR BRAND ADS<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Ad Creatives</div><div class="p-name">GoBrand — Major Brand Campaigns</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Ad Creatives</div>
+                <div class="p-name">GoBrand — Major Brand Campaigns</div>
+                <div class="p-client">via GoBrand · RyanAir, Stanley, Gymshark, Liquid Death, Crocs</div>
+                <div class="p-desc">High-impact paid social ads — bold typography, conversion-focused layout for global brands.</div>
+                <div class="p-tools"><span class="p-tool">Adobe PS</span><span class="p-tool">Canva</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="social">
+            <div class="p-img bg-social">
+                <!-- REPLACE: <img src="images/carmelo-paris.jpg" alt="Carmelo Paris"> -->
+                <div class="p-ph-text">CARMELO PARIS<br>CAROUSEL SERIES<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Social Media</div><div class="p-name">Carmelo Paris — Carousel Series</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Social Media Graphics</div>
+                <div class="p-name">Carmelo Paris — Carousel Series</div>
+                <div class="p-client">Carmelo Paris · Luxury Art Brand</div>
+                <div class="p-desc">Content strategy, concept, and full creative execution for a luxury art & lifestyle brand.</div>
+                <div class="p-tools"><span class="p-tool">Canva</span><span class="p-tool">Adobe AI</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="packaging">
+            <div class="p-img bg-packaging">
+                <!-- REPLACE: <img src="images/product-packaging.jpg" alt="Product Packaging"> -->
+                <div class="p-ph-text">VITAMIN BOTTLES<br>PR KITS & POUCHES<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Product Packaging</div><div class="p-name">Vitamin Bottles, PR Kits & Pouches</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Product Packaging</div>
+                <div class="p-name">Vitamin Bottles, PR Kits & Pouches</div>
+                <div class="p-client">Health & Wellness Brands</div>
+                <div class="p-desc">Multi-format product packaging — print-ready across all SKU formats.</div>
+                <div class="p-tools"><span class="p-tool">Adobe Illustrator</span><span class="p-tool">Figma</span></div>
+            </div>
+        </div>
+
+        <div class="p-card wide" data-cat="web">
+            <div class="p-img bg-web">
+                <!-- REPLACE: <img src="images/uxui-web.jpg" alt="UX/UI Web Design"> -->
+                <div class="p-ph-text">UX/UI WEB DESIGN<br>FIGMA LAYOUTS<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Web & UX/UI</div><div class="p-name">Web Interface Design — Figma</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Web & UX/UI Design</div>
+                <div class="p-name">Web Interface Design — Figma</div>
+                <div class="p-client">Multiple B2B Clients</div>
+                <div class="p-desc">User interface and web layout design — structured for usability, optimized for conversion.</div>
+                <div class="p-tools"><span class="p-tool">Figma</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="print">
+            <div class="p-img bg-print">
+                <!-- REPLACE: <img src="images/brochure-poster.jpg" alt="Brochure Design"> -->
+                <div class="p-ph-text">BROCHURE &<br>POSTER DESIGNS<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Print Design</div><div class="p-name">Brochures & Poster Designs</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Print & Collaterals</div>
+                <div class="p-name">Brochures & Poster Designs</div>
+                <div class="p-client">Local Chicken Business · Illustrator</div>
+                <div class="p-desc">Print marketing materials designed in Adobe Illustrator. Brand-consistent layouts.</div>
+                <div class="p-tools"><span class="p-tool">Adobe Illustrator</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="print">
+            <div class="p-img bg-print">
+                <!-- REPLACE: <img src="images/catalog.jpg" alt="Catalog Design"> -->
+                <div class="p-ph-text">MARKETING CATALOG<br>WDB MARKETING<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Catalog Design</div><div class="p-name">Marketing Catalog — WDB</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Catalog Design</div>
+                <div class="p-name">Marketing Catalog — WDB</div>
+                <div class="p-client">Marketing Collateral Services · Figma</div>
+                <div class="p-desc">Full product/service catalog layout — Figma-designed, print-ready, brand-compliant output.</div>
+                <div class="p-tools"><span class="p-tool">Figma</span></div>
+            </div>
+        </div>
+
+        <div class="p-card wide" data-cat="digital">
+            <div class="p-img bg-digital">
+                <!-- REPLACE: <img src="images/presentation.jpg" alt="Presentation Design"> -->
+                <div class="p-ph-text">6 P'S FRAMEWORK<br>KEYNOTE PRESENTATION<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Presentation Design</div><div class="p-name">6 P's Framework — Keynote Deck</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Presentation Design</div>
+                <div class="p-name">6 P's Framework — Keynote Deck</div>
+                <div class="p-client">Joi Schweitzer · Keynote Speaker & Author</div>
+                <div class="p-desc">Full presentation design — structured layout, strong typography, consistent brand system.</div>
+                <div class="p-tools"><span class="p-tool">Canva</span><span class="p-tool">Figma</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="digital">
+            <div class="p-img bg-digital">
+                <!-- REPLACE: <img src="images/coloring-books.jpg" alt="Coloring Book Covers"> -->
+                <div class="p-ph-text">COLORING BOOK<br>COVER DESIGNS<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Illustrations</div><div class="p-name">"Start Your Day With God" Series</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Illustrations & Digital Products</div>
+                <div class="p-name">"Start Your Day With God" Series</div>
+                <div class="p-client">Christian Children's Books</div>
+                <div class="p-desc">Illustrated coloring book covers — designed in Adobe Illustrator. Consistent brand series.</div>
+                <div class="p-tools"><span class="p-tool">Adobe Illustrator</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="ai">
+            <div class="p-img bg-ai">
+                <!-- REPLACE: <img src="images/ai-lifestyle.jpg" alt="AI Image Generation"> -->
+                <div class="p-ph-text">AI LIFESTYLE<br>PHOTOGRAPHY<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">AI Creative</div><div class="p-name">AI Image Generation — Weavy AI</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">AI-Assisted Creative</div>
+                <div class="p-name">AI Lifestyle Photography</div>
+                <div class="p-client">Nano Banana Pro via Weavy AI</div>
+                <div class="p-desc">AI-generated lifestyle photography for product & brand marketing campaigns.</div>
+                <div class="p-tools"><span class="p-tool">Weavy AI</span><span class="p-tool">Gemini</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="ai">
+            <div class="p-img bg-gifs">
+                <!-- REPLACE: <img src="images/gifs-stickers.jpg" alt="GIFs and Stickers"> -->
+                <div class="p-ph-text">GIFS & ANIMATED<br>STICKER ART<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">GIFs & Animation</div><div class="p-name">Animated Stickers & GIFs</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">GIFs & Animations</div>
+                <div class="p-name">Gummy Bears & Sticker Art</div>
+                <div class="p-client">Health Fusion Brand</div>
+                <div class="p-desc">Animated GIFs and sticker sheets — cartoon characters and branded animations.</div>
+                <div class="p-tools"><span class="p-tool">Procreate</span><span class="p-tool">Illustrator</span></div>
+            </div>
+        </div>
+
+        <div class="p-card" data-cat="ads">
+            <div class="p-img bg-ads">
+                <!-- REPLACE: <img src="images/dental-ads.jpg" alt="Dental Ad Creatives"> -->
+                <div class="p-ph-text">DENTISTRY<br>AD CREATIVES<br><br>📸 Add image here</div>
+            </div>
+            <div class="p-label"><div class="p-cat">Ad Creatives</div><div class="p-name">Dental Practice — Ad Campaign</div></div>
+            <div class="p-overlay">
+                <div class="p-cat">Ad Creatives</div>
+                <div class="p-name">Dental Practice — Ad Campaign</div>
+                <div class="p-client">Aten & Garofalo Dentistry</div>
+                <div class="p-desc">Patient-focused ad creatives — clean, trustworthy design for a dental practice.</div>
+                <div class="p-tools"><span class="p-tool">Canva</span><span class="p-tool">Adobe PS</span></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Tools -->
+<div class="tools-wrap" id="tools">
+    <section>
+        <div class="reveal">
+            <div class="s-label">My Stack</div>
+            <h2 class="s-title">Tools I Use</h2>
+            <p class="s-sub">Industry-standard tools across design, AI, productivity, and collaboration.</p>
+        </div>
+        <div class="tools-grid reveal reveal-delay-1">
+            <div class="tool-cat">
+                <div class="tool-cat-name">Design & Editing</div>
+                <ul class="tool-list">
+                    <li>Adobe Photoshop</li>
+                    <li>Adobe Illustrator</li>
+                    <li>Adobe Premiere</li>
+                    <li>Figma</li>
+                    <li>Canva</li>
+                    <li>Filmora</li>
+                    <li>KineMaster</li>
+                    <li>Capcut</li>
+                </ul>
+            </div>
+            <div class="tool-cat">
+                <div class="tool-cat-name">AI Generation</div>
+                <ul class="tool-list">
+                    <li>Claude AI</li>
+                    <li>Weavy AI</li>
+                    <li>ChatGPT</li>
+                    <li>Gemini</li>
+                    <li>Higgsfield</li>
+                    <li>Freepik AI</li>
+                    <li>Manus AI</li>
+                    <li>Lovable</li>
+                    <li>Envato AI</li>
+                </ul>
+            </div>
+            <div class="tool-cat">
+                <div class="tool-cat-name">Productivity & Comms</div>
+                <ul class="tool-list">
+                    <li>Google Suite</li>
+                    <li>Microsoft 365</li>
+                    <li>Slack / MS Teams</li>
+                    <li>Trello</li>
+                    <li>ClickUp</li>
+                    <li>Notion</li>
+                    <li>Asana</li>
+                    <li>Zendesk</li>
+                    <li>Calendly</li>
+                </ul>
+            </div>
+            <div class="tool-cat">
+                <div class="tool-cat-name">Marketing & Social</div>
+                <ul class="tool-list">
+                    <li>Metricool</li>
+                    <li>ManyChat</li>
+                    <li>Kajabi</li>
+                    <li>FG Funnels</li>
+                    <li>Facebook / Instagram</li>
+                    <li>TikTok</li>
+                    <li>YouTube Studio</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Testimonial -->
+<section class="testi-wrap">
+    <div class="testi-glow"></div>
+    <div class="testi-inner reveal">
+        <span class="testi-qmark">"</span>
+        <p class="testi-quote">Eunice is very responsible, responsive, and talented. A pleasure to work with.</p>
+        <div class="testi-line"></div>
+        <div class="testi-name">James Wheeler</div>
+        <div class="testi-role">WDB Marketing &nbsp;·&nbsp; April 2026</div>
+    </div>
+</section>
+
+<!-- Clients -->
+<section id="clients">
+    <div class="reveal">
+        <div class="s-label">Previous Clients</div>
+        <h2 class="s-title">Brands I've Worked With</h2>
+        <p class="s-sub">Long-term B2B partnerships and agency collaborations across multiple industries.</p>
+    </div>
+    <div class="clients-grid reveal reveal-delay-1">
+        <div class="client-card"><div class="client-name">GoBrand</div><div class="client-type">Creative Agency<br>Major Global Brands</div></div>
+        <div class="client-card"><div class="client-name">Zois Perfume</div><div class="client-type">Luxury Fragrance<br>Packaging & Collaterals</div></div>
+        <div class="client-card"><div class="client-name">Carmelo Paris</div><div class="client-type">Art & Lifestyle Brand<br>Social Media</div></div>
+        <div class="client-card"><div class="client-name">Admiral Media</div><div class="client-type">Digital Media Agency</div></div>
+        <div class="client-card"><div class="client-name">WDB Marketing</div><div class="client-type">Marketing Agency<br>Print & Digital</div></div>
+        <div class="client-card"><div class="client-name">Joi Schweitzer</div><div class="client-type">Keynote Speaker & Author<br>Content Strategy</div></div>
+        <div class="client-card"><div class="client-name">Blunt Cases</div><div class="client-type">Ecommerce<br>Product Brand</div></div>
+        <div class="client-card"><div class="client-name">Moreh Printing</div><div class="client-type">Print & Publishing</div></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-block reveal">
+    <h2>Let's Build Something Great.</h2>
+    <p>Open to long-term B2B partnerships. Americas timezone. Senior-level output.</p>
+    <a href="mailto:yunisa.hernandez@gmail.com" class="btn-dark">Start a Project →</a>
+</div>
+
+<!-- Contact -->
+<div class="contact-wrap" id="contact">
+    <section>
+        <div class="contact-grid reveal">
+            <div>
+                <div class="s-label">Get In Touch</div>
+                <h2 class="s-title">Let's Work<br>Together.</h2>
+                <p class="s-sub" style="margin-bottom:44px;">Available for long-term B2B projects, creative partnerships, and agency collaborations.</p>
+                <div class="c-item">
+                    <div class="c-icon">📞</div>
+                    <div><div class="c-label">Phone / WhatsApp</div><div class="c-value"><a href="tel:+639985792603">+(63) 998 579 2603</a></div></div>
+                </div>
+                <div class="c-item">
+                    <div class="c-icon">✉️</div>
+                    <div><div class="c-label">Email</div><div class="c-value"><a href="mailto:yunisa.hernandez@gmail.com">yunisa.hernandez@gmail.com</a></div></div>
+                </div>
+                <div class="c-item">
+                    <div class="c-icon">💼</div>
+                    <div><div class="c-label">LinkedIn</div><div class="c-value"><a href="https://linkedin.com/in/yunisahernz" target="_blank">Eunice Camille Dela Rosa</a></div></div>
+                </div>
+                <div class="c-item">
+                    <div class="c-icon">🌍</div>
+                    <div><div class="c-label">Availability</div><div class="c-value">Americas Timezone · Open to Long-term</div></div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="font-family:'Koulen',sans-serif;font-size:30px;margin-bottom:8px;">Quick Enquiry</h3>
+                <p style="font-size:14px;color:var(--text-muted);margin-bottom:32px;">I respond within 24 hours.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-input" placeholder="Jane Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="jane@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Project Type</label>
+                        <select class="form-input" required>
+                            <option value="" disabled selected>Select a service...</option>
+                            <option>Packaging & Product Design</option>
+                            <option>Ad Creatives & Social Media</option>
+                            <option>Web & UX/UI Design</option>
+                            <option>Email Marketing Design</option>
+                            <option>Print & Collaterals</option>
+                            <option>AI-Assisted Creative</option>
+                            <option>Long-term Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input" rows="4" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width:100%;font-family:'Inter',sans-serif;border:none;cursor:pointer;" id="submitBtn">Send Message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logo">EUNICE CAMILLE</div>
+    <div class="footer-copy">© 2026 Eunice Camille Dela Rosa. All rights reserved.</div>
+    <div class="footer-links">
+        <a href="mailto:yunisa.hernandez@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/yunisahernz" target="_blank">LinkedIn</a>
+        <a href="https://upwork.com" target="_blank">Upwork</a>
+    </div>
+</footer>
+
+<script>
+    // Nav scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+    // Mobile nav
+    document.getElementById('navBurger').onclick = () => document.getElementById('mobileNav').classList.add('open');
+    document.getElementById('mobileClose').onclick = closeMobile;
+    function closeMobile() { document.getElementById('mobileNav').classList.remove('open'); }
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver(entries => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 70);
+            }
+        });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => ro.observe(el));
+
+    // Counter animation
+    function runCounters(container) {
+        container.querySelectorAll('[data-count]').forEach(el => {
+            const target = parseInt(el.dataset.count);
+            const suffix = target === 100 ? '%' : '+';
+            let n = 0;
+            const step = target / 45;
+            const t = setInterval(() => {
+                n = Math.min(n + step, target);
+                el.textContent = Math.floor(n) + suffix;
+                if (n >= target) clearInterval(t);
+            }, 35);
+        });
+    }
+    const statsObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { runCounters(e.target); statsObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObs.observe(statsEl);
+
+    // Portfolio filter
+    document.querySelectorAll('.f-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.dataset.filter;
+            document.querySelectorAll('.p-card').forEach(card => {
+                const match = f === 'all' || card.dataset.cat === f;
+                card.classList.toggle('filtered', !match);
+            });
+        });
+    });
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#22c55e';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.textContent = 'Send Message →';
+            btn.style.background = 'var(--orange)';
+            btn.disabled = false;
+            e.target.reset();
+        }, 3500);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+</script>
+</body>
+</html>

@@ -157,3 +157,19 @@ nav a.active{border-bottom:1px solid var(--gold);padding-bottom:7px}
 .illustration-portfolio .illustration-sun{right:-25px;top:-50px}
 .illustration-portfolio .illustration-caption{z-index:4;background:#27204fa6;backdrop-filter:blur(4px);padding:8px 10px;bottom:11px}
 .illustration-portfolio .illustration-work-frame.image-unavailable:after{content:"ILLUSTRATION / PORTFOLIO";position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:italic 26px Georgia,serif;color:#8c55ab;background:linear-gradient(135deg,#fbe2e8,#e0d1ff)}
+
+/* Authentic portfolio visuals: no synthetic sample-project art */
+.portfolio-cover{position:relative;overflow:hidden;background:#171612}
+.portfolio-cover>img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.lux-card:hover .portfolio-cover>img{transform:scale(1.055)}
+.portfolio-cover .cover-shade{position:absolute;inset:0;background:linear-gradient(180deg,#09090911 35%,#070707c7 100%);pointer-events:none}
+.portfolio-cover .cover-project{position:absolute;left:20px;bottom:46px;font-size:10px;letter-spacing:.12em;color:#fff4db;font-weight:600;text-shadow:0 2px 8px #000}
+.portfolio-cover .art-caption{z-index:2}
+.original-asset-cover{position:relative;background:#1d1d1c}.original-asset-cover img{object-fit:contain;background:#22211f}
+.asset-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 14px 12px;background:linear-gradient(transparent,#080808e8);font-size:9px;letter-spacing:.13em;color:#f2e1bc}
+.digital-work-cover{background:#282623}.digital-work-cover img{object-fit:contain;object-position:center;background:#24221f}
+.illustration-actual{background:#33283b}.illustration-actual img{object-fit:contain;background:linear-gradient(125deg,#302944,#80576e)}
+/* Ensure covers stay legible when actual image sources cannot load */
+.portfolio-cover .cover-project{z-index:2}
+
+.authentic-poster:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#05050575 100%);pointer-events:none}.authentic-poster .play-ring{z-index:2}.authentic-poster .poster-fallback{position:absolute;inset:0}.authentic-poster .poster-fallback span{max-width:85%}

@@ -213,3 +213,11 @@ nav a.active{border-bottom:1px solid var(--gold);padding-bottom:7px}
 .cro-closing{text-align:center;padding:105px 0 120px}.cro-closing h2{font-size:clamp(40px,5vw,67px);font-weight:480}
 @media(max-width:850px){.cro-intro,.cro-two-column{grid-template-columns:1fr;gap:15px}.cro-phase-grid{grid-template-columns:repeat(2,1fr)}.cro-design-principles{grid-template-columns:1fr}}
 @media(max-width:570px){.cro-portfolio-page .cro-hero,.cro-story-section{padding:65px 0}.cro-hero h1{font-size:52px}.cro-phase-grid,.cro-divider-stats{grid-template-columns:1fr}.cro-phase-grid article{min-height:0}.portrait-approved img{min-height:360px}}
+
+/* Gentle CRO editorial motion; original Figma artwork stays unchanged */
+@keyframes croReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.cro-portfolio-page .cro-head-layout>div:first-child{animation:croReveal .8s ease-out both}
+.cro-portfolio-page .cro-aside{animation:croReveal .85s ease-out .18s both}
+.cro-figma-shot,.cro-strategy-shot{transition:box-shadow .35s ease,border-color .35s ease}
+.cro-figma-shot:hover,.cro-strategy-shot:hover{box-shadow:0 24px 65px #c9ad7320;border-color:#bda572}
+@media(prefers-reduced-motion:reduce){.cro-portfolio-page .cro-head-layout>div:first-child,.cro-portfolio-page .cro-aside{animation:none!important}}

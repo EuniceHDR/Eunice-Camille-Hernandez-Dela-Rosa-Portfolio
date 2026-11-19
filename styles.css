@@ -250,3 +250,19 @@ nav a.active{border-bottom:1px solid var(--gold);padding-bottom:7px}
 @media(max-width:900px){.home-page .signature-hero{min-height:460px;aspect-ratio:1.05}}
 @media(max-width:600px){.home-page .signature-hero{min-height:410px;aspect-ratio:.96}.home-page .signature-bottom{bottom:24px;left:24px;right:24px}.home-page .signature-bottom strong{font-size:43px}.home-page .signature-editorial{top:24px;right:24px}}
 @media(prefers-reduced-motion:reduce){.home-page .signature-frame,.home-page .signature-frame img,.home-page .signature-rule span{animation:none!important;transform:none!important}.home-page .signature-frame{opacity:0!important}.home-page .signature-frame-one{opacity:1!important}}
+
+/* Jewelry-led hero — original Glamour Jewelry storyboard, framed to its necklace panel. */
+.home-page .signature-jewelry-photo{
+ position:absolute;inset:0;
+ background-image:url("https://drive.google.com/thumbnail?id=1Qlg6_VR__g2vEFHdBKtRxjIk2eTFYuk3&sz=w2000");
+ background-color:#4a0916;
+ background-repeat:no-repeat;
+ background-size:350% auto;
+ background-position:center -155px;
+ filter:brightness(.82) saturate(.93);
+ transform:scale(1.045);
+ animation:signatureJewelryCamera 15s ease-in-out infinite;
+}
+@keyframes signatureJewelryCamera{0%{transform:scale(1.055)}32%{transform:scale(1.0)}100%{transform:scale(1.055)}}
+@media(max-width:900px){.home-page .signature-jewelry-photo{background-position:center 14%;}}
+@media(prefers-reduced-motion:reduce){.home-page .signature-jewelry-photo{animation:none!important;transform:none!important}}

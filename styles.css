@@ -387,3 +387,6 @@ footer a{display:inline-flex;min-height:44px;align-items:center}
  html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* Ensure filtered gallery cards obey their hidden state. */
+[hidden]{display:none!important}

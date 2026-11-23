@@ -336,3 +336,54 @@ nav a.active{border-bottom:1px solid var(--gold);padding-bottom:7px}
   .home-page .signature-hero{aspect-ratio:1/1;min-height:0}
   .home-page .lux-card-art{aspect-ratio:4/3}
 }
+\n
+/* YUNISA experience refinement | November 2026 */
+:root{--focus-ring:#ead29d}
+body{overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:#c9ad73;color:#080808}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:4px}
+a,button{ -webkit-tap-highlight-color:transparent }
+button{font:inherit}
+header{z-index:60;border-bottom-color:rgba(201,173,115,.16)}
+.navrow{position:relative}
+.brand{white-space:nowrap}
+nav a{transition:color .2s ease}
+nav a:hover{color:#f2dcad}
+.btn,.lux-card,.tile,.case-card,.video-card,.imagery-card{transition-duration:.28s}
+.btn:focus-visible,.poster-button:focus-visible,.watch-link:focus-visible{outline-offset:5px}
+.lux-card:hover .lux-card-art img{transform:scale(1.035)}
+.lux-card-art img{transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.lux-copy h1,.pagehead h1,.video-title-row h1{text-wrap:balance}
+.lux-copy p,.pagehead p{text-wrap:pretty}
+footer{align-items:center}
+footer a{display:inline-flex;min-height:44px;align-items:center}
+.nav-toggle{display:none;align-items:center;justify-content:center;gap:9px;padding:11px 14px;border:1px solid #665634;background:#141311;color:var(--white);border-radius:3px;cursor:pointer;letter-spacing:.11em;font-size:11px;text-transform:uppercase}
+.nav-toggle svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none}
+.portfolio-contact{padding:clamp(56px,8vw,112px) 0;border-top:1px solid var(--line);margin-top:42px}
+.portfolio-contact-inner{display:flex;align-items:end;justify-content:space-between;gap:25px}
+.portfolio-contact h2{font-size:clamp(40px,6vw,74px);line-height:1.04;letter-spacing:-.055em;font-weight:480;max-width:700px;margin:15px 0 0}
+.portfolio-contact h2 em{color:var(--gold);font-family:Georgia,serif;font-weight:400}
+.portfolio-contact p{color:var(--muted);max-width:450px;line-height:1.7}
+.portfolio-contact .btn{white-space:nowrap;text-align:center}
+@media(max-width:850px){
+ .js-ready .navrow{flex-direction:row;align-items:center;min-height:72px;padding:12px 0}
+ .js-ready .nav-toggle{display:inline-flex;margin-left:auto}
+ .js-ready .navrow>nav{display:none;position:absolute;left:0;right:0;top:calc(100% + 1px);flex-direction:column;gap:0;padding:12px;background:#11100f;border:1px solid #453a27;box-shadow:0 24px 55px rgba(0,0,0,.5);max-height:calc(100dvh - 85px);overflow-y:auto}
+ .js-ready .navrow>nav.is-open{display:flex}
+ .js-ready .navrow>nav a{padding:15px 13px;font-size:12px;border-bottom:1px solid #27231d;min-height:46px}
+ .js-ready .navrow>nav a.active{background:#c9ad7310;color:#efdbad;border-bottom-color:#6d5934}
+ .portfolio-contact-inner{display:block}
+ .portfolio-contact .btn{margin-top:12px}
+}
+@media(max-width:600px){
+ .brand{font-size:14px;letter-spacing:.07em}
+ .nav-toggle{padding:10px 12px}
+ .portfolio-contact{padding:60px 0}
+ .portfolio-contact .btn{display:inline-block}
+ .home-page .lux-copy h1{font-size:clamp(46px,12vw,60px)}
+ .home-page .lux-copy h1 .hero-headline-tail{font-size:clamp(20px,5vw,29px)}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

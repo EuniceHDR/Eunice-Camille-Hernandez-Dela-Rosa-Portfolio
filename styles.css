@@ -267,3 +267,72 @@ nav a.active{border-bottom:1px solid var(--gold);padding-bottom:7px}
 @keyframes signatureJewelryCamera{0%{transform:scale(1.055)}32%{transform:scale(1.0)}100%{transform:scale(1.055)}}
 @media(max-width:900px){.home-page .signature-jewelry-photo{background-position:center 45%;}}
 @media(prefers-reduced-motion:reduce){.home-page .signature-jewelry-photo{animation:none!important;transform:none!important}}
+
+/* Homepage image clarity & alignment correction - November 2026
+   Preserve the original editorial visual system. */
+.home-page .lux-hero{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,56px);
+  align-items:center;
+}
+.home-page .lux-copy,.home-page .lux-visual{min-width:0}
+.home-page .signature-hero{
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  min-height:0;
+  transform:none;
+  border-radius:0;
+  box-shadow:0 28px 75px rgba(0,0,0,.42);
+}
+.home-page .signature-stage{inset:10px}
+.home-page .signature-frame img{
+  object-fit:cover;
+  image-rendering:auto;
+  transform:none;
+  filter:brightness(.94) saturate(.96);
+  animation:none;
+}
+.home-page .signature-frame-two img{object-position:50% 45%}
+.home-page .signature-frame-three img{object-fit:contain;object-position:center;background:#eee9e0}
+.home-page .signature-jewelry-photo{
+  transform:none;
+  animation:none;
+  filter:brightness(.94) saturate(1);
+}
+.home-page .signature-grain{
+  background:linear-gradient(180deg,rgba(7,7,7,.23) 0%,transparent 34%,rgba(5,5,5,.70) 100%);
+}
+.home-page .lux-cards{align-items:stretch}
+.home-page .lux-card{display:flex;flex-direction:column;height:100%}
+.home-page .lux-card-art{
+  width:100%;
+  height:auto;
+  aspect-ratio:4/3;
+  flex:0 0 auto;
+}
+.home-page .portfolio-cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  max-width:none;
+  filter:none;
+  image-rendering:auto;
+}
+.home-page .lux-card .lux-card-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+}
+.home-page .lux-card .lux-card-body p{margin-top:auto}
+@media(max-width:900px){
+  .home-page .lux-hero{grid-template-columns:1fr;gap:32px;min-height:0}
+  .home-page .signature-hero{width:min(100%,560px);margin:0 auto;aspect-ratio:1/1}
+}
+@media(max-width:600px){
+  .home-page .lux-hero{gap:24px}
+  .home-page .signature-hero{aspect-ratio:1/1;min-height:0}
+  .home-page .lux-card-art{aspect-ratio:4/3}
+}
